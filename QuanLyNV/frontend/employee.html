@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+<link rel="stylesheet" href="./css/employee.css">
+</head>
+<body>
+<div class="topbar">
+    <div class="company-name">
+        LUMINATION
+    </div>
+    <div class="employee-info">
+        <div class="employee-avatar">
+            TC
+        </div>
+        <div class="employee-name">
+            Trần Quốc Cường
+        </div>
+    </div>
+</div>
+<div class="main-container">
+    <div class="sidebar">
+        <ul>
+            <li onclick="scrollToSection('dashboard')" class="active">
+                📊 Dashboard
+            </li>
+            <li onclick="scrollToSection('attendance')">
+                ⏰ Chấm Công
+            </li>
+            <li onclick="scrollToSection('leave')">
+                📝 Đơn Nghỉ Phép
+            </li>
+            <li onclick="scrollToSection('history')">
+                📋 Đơn Nghỉ Phép Đã Gửi
+            </li>
+            <li onclick="scrollToSection('attendanceHistory')">
+                📅 Lịch Sử Chấm Công
+            </li>
+            <li onclick="logout()">
+                🚪 Đăng Xuất
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <section id="dashboard">
+            <h1>Dashboard</h1>
+            <div class="cards">
+                <div class="card">
+                    <h3>Ngày phép còn lại</h3>
+                    <span>12</span>
+                </div>
+                <div class="card">
+                    <h3>Check In</h3>
+                    <span id="checkInTime">
+                        --:--
+                    </span>
+                </div>
+                <div class="card">
+                    <h3>Check Out</h3>
+                    <span id="checkOutTime">
+                        --:--
+                    </span>
+                </div>
+                <div class="card">
+                    <h3>Đơn đang chờ</h3>
+                    <span id="pendingRequest">
+                        0
+                    </span>
+                </div>
+            </div>
+        </section>
+        <section id="attendance" class="attendance-box">
+            <h2>Chấm Công Nhân Viên</h2>
+            <div class="attendance-status">
+                <div class="status-card">
+                    <h4>Giờ hiện tại</h4>
+                    <span id="currentTime">
+                        00:00:00
+                    </span>
+                </div>
+            </div>
+            <div class="button-group">
+                <button
+                    class="checkin-btn"
+                    onclick="checkIn()">
+
+                    Check In
+
+                </button>
+                <button
+                    class="checkout-btn"
+                    onclick="checkOut()">
+
+                    Check Out
+
+                </button>
+            </div>
+        </section>
+        <section id="leave" class="leave-box">
+            <h2>Tạo Đơn Xin Nghỉ</h2>
+            <div class="form-group">
+                <label>Ngày bắt đầu</label>
+                <input
+                    type="date"
+                    id="startDate">
+            </div>
+            <div class="form-group">
+                <label>Ngày kết thúc</label>
+                <input
+                    type="date"
+                    id="endDate">
+            </div>
+            <div class="form-group">
+                <label>Lý do nghỉ phép</label>
+                <textarea
+                    id="reason"
+                    placeholder="Nhập lý do nghỉ phép"></textarea>
+            </div>
+            <button
+                class="submit-btn"
+                onclick="submitLeave()">
+
+                Gửi Đơn
+
+            </button>
+        </section>
+        <section id="history" class="history-box">
+            <h2>Lịch Sử Đơn Nghỉ Phép</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Từ ngày</th>
+
+                        <th>Đến ngày</th>
+
+                        <th>Lý do</th>
+
+                        <th>Trạng thái</th>
+
+                        <th>Hành động</th>
+
+                    </tr>
+                </thead>
+                <tbody id="leaveTable">
+                </tbody>
+            </table>
+        </section>
+        <section
+            id="attendanceHistory"
+            class="history-box">
+            <h2>
+                Lịch Sử Chấm Công Tuần Này
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTable">
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+<script src="./js/employee.js"></script>
+</body>
+</html>

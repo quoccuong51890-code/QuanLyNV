@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="form-box">
+                <h2>LOGIN</h2>
+                <div id="error-message"></div>
+                <div class="input-group">
+                    <input type="text"
+                        id="username"
+                        placeholder="Username hoặc Gmail">
+                </div>
+                <div class="input-group">
+                    <input type="password"
+                        id="password"
+                        placeholder="Password">
+                </div>
+                <button onclick="login()">
+                    Đăng nhập
+                </button>
+                <div class="register-link">
+                    Don't have an account?
+                    <a href="register.html">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h1 class="welcome-title">
+                WELCOME BACK
+            </h1>
+            <p id="typing-text"></p>
+        </div>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+</html>

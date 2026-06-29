@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LUMINATION Manager</title>
+    <link rel="stylesheet" href="./css/manager.css">
+</head>
+
+<body>
+
+<div class="topbar">
+
+    <div class="company-name">
+        LUMINATION
+    </div>
+
+    <div class="manager-info">
+
+        <div class="avatar">
+            MG
+        </div>
+
+        <span>
+            Nguyễn Văn A
+        </span>
+
+    </div>
+
+</div>
+
+<div class="main-container">
+
+    <div class="sidebar">
+
+        <ul>
+
+            <li onclick="scrollToSection('dashboard')">
+                Dashboard
+            </li>
+
+            <li onclick="scrollToSection('employees')">
+                Nhân Viên
+            </li>
+
+            <li onclick="scrollToSection('leaveRequests')">
+                Đơn Nghỉ Phép
+            </li>
+
+            <li onclick="logout()">
+                Đăng Xuất
+            </li>
+
+        </ul>
+
+    </div>
+
+    <div class="content">
+
+        <section id="dashboard">
+
+            <h1>Dashboard Manager</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Tổng Nhân Viên</h3>
+                    <span>35</span>
+                </div>
+
+                <div class="card">
+                    <h3>Đang Đi Làm</h3>
+                    <span>29</span>
+                </div>
+
+                <div class="card">
+                    <h3>Nghỉ Phép</h3>
+                    <span>6</span>
+                </div>
+
+                <div class="card">
+                    <h3>Chờ Duyệt</h3>
+                    <span id="pendingCount">0</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="employees">
+
+            <div class="box">
+
+                <h2>Danh Sách Nhân Viên</h2>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Nhân viên</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Trần Quốc Cường</td>
+                            <td class="working">
+                                Đang làm việc
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Nguyễn Văn B</td>
+                            <td class="leave">
+                                Nghỉ phép
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <section id="leaveRequests">
+
+            <div class="box">
+
+                <h2>Đơn Xin Nghỉ</h2>
+
+                <select id="filterStatus"
+                    onchange="filterRequests()">
+
+                    <option value="all">
+                        Tất cả
+                    </option>
+
+                    <option value="Chờ duyệt">
+                        Chờ duyệt
+                    </option>
+
+                    <option value="Đã duyệt">
+                        Đã duyệt
+                    </option>
+
+                    <option value="Đã từ chối">
+                        Đã từ chối
+                    </option>
+
+                </select>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nhân viên</th>
+                            <th>Từ ngày</th>
+                            <th>Đến ngày</th>
+                            <th>Lý do</th>
+                            <th>Trạng thái</th>
+                            <th>Ghi chú</th>
+                            <th>Thao tác</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="requestTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="./js/manager.js"></script>
+
+</body>
+
+</html>
